@@ -1,0 +1,29 @@
+Font per il convertitore PDF in puro PHP (DocxPdf.php)
+======================================================
+
+Questa cartella è vuota nel repository: i font vanno scaricati e copiati
+qui. Le istruzioni complete sono nel README, sezione "Font".
+
+Senza nessun font (né qui né tra i font di sistema del server) la
+conversione in PDF con il motore PHP non funziona.
+
+Font di base consigliati (liberi):
+
+- Liberation Sans e Liberation Serif (sostituti di Arial e Times New Roman)
+  https://github.com/liberationfonts/liberation-fonts/releases
+  file: liberation-fonts-ttf-<versione>.tar.gz
+  da copiare: LiberationSans-*.ttf e LiberationSerif-*.ttf
+
+- DejaVu Sans (sostituto di Verdana e dei simboli ☐ ☒ • ◦ ▪)
+  https://github.com/dejavu-fonts/dejavu-fonts/releases
+  file: dejavu-fonts-ttf-<versione>.zip, cartella ttf/
+  da copiare: DejaVuSans.ttf e DejaVuSans-Bold.ttf
+
+Per avere gli stessi a capo di Word servono anche i font usati nei modelli
+(per esempio Roboto, Calibri, Verdana): copiare qui i loro file .ttf,
+verificando che la licenza ne consenta l'uso sul server. Sono supportati
+i file .ttf e .ttc con contorni TrueType; i font OpenType CFF (.otf)
+vengono ignorati.
+
+Quando un font manca, la risposta del server (voce "avvisi") e la pagina
+verifica.php indicano quale sostituto è stato usato.

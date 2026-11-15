@@ -1,0 +1,29 @@
+# FZPureDOCX — protezione dei file interni
+#
+# L'elenco degli IP autorizzati non sta qui ma in _apikeys.php
+# (voce ip_consentiti), così questo file non contiene dati privati.
+
+# Configurazione, chiavi e file di avvio non sono raggiungibili dal web
+<FilesMatch "^(_.*\.php|\.user\.ini|\.htaccess|\.gitignore|.*\.md)$">
+    Require all denied
+</FilesMatch>
+# lib/ e log/ hanno un proprio .htaccess con "Require all denied"
+
+# --- LIMITI PHP ---
+# I documenti arrivano in base64 dentro il POST e le tabelle possono avere
+# molte righe: servono POST grandi e molte variabili. Con PHP-FPM/CGI valgono
+# i valori di .user.ini, con mod_php questi.
+<IfModule mod_php.c>
+    php_value post_max_size 128M
+    php_value max_input_vars 20000
+    php_value max_input_nesting_level 64
+    php_value memory_limit 1024M
+    php_value max_execution_time 300
+</IfModule>
+<IfModule mod_php7.c>
+    php_value post_max_size 128M
+    php_value max_input_vars 20000
+    php_value max_input_nesting_level 64
+    php_value memory_limit 1024M
+    php_value max_execution_time 300
+</IfModule>

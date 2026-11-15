@@ -1,0 +1,10 @@
+# Dati privati di ogni installazione
+_apikeys.php
+log/*.log
+
+# Font: non si pubblicano, vanno scaricati (vedi README, sezione Font)
+lib/fonts/*
+!lib/fonts/LEGGIMI.txt
+
+# File di sistema
+.DS_Store
