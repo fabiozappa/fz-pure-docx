@@ -6,6 +6,7 @@
  * Risposta JSON: esito, errore, tool, data_pdf (PDF base64)
  */
 $tool = 'gdocx2pdf';
+require __DIR__ . '/_versione.php';
 require __DIR__ . '/_start.php';
 require __DIR__ . '/lib/DocTemplate.php';
 

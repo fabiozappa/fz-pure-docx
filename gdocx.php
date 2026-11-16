@@ -7,6 +7,7 @@
  * Risposta JSON: esito, errore, tool, data (DOCX base64), data_pdf (PDF base64, se richiesto)
  */
 $tool = 'gdocx';
+require __DIR__ . '/_versione.php';
 require __DIR__ . '/_start.php';
 require __DIR__ . '/lib/DocTemplate.php';
 require __DIR__ . '/lib/GDocx.php';

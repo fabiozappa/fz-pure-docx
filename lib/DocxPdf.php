@@ -1401,8 +1401,9 @@ final class DocxPdfEngine
         }
         foreach (self::kids(self::kid($el, 'a:clrScheme')) as $c) {
             foreach (self::kids($c) as $v) {
-                $hex = $v->getAttribute('val') ?: $v->getAttribute('lastClr');
-                if (strlen($hex) === 6) {
+                // sysClr ha val="window"/"windowText" (nomi, non colori): il colore è in lastClr
+                $hex = $v->localName === 'sysClr' ? $v->getAttribute('lastClr') : $v->getAttribute('val');
+                if (preg_match('/^[0-9A-Fa-f]{6}$/', $hex) === 1) {
                     $this->themeColors[$c->localName] = strtoupper($hex);
                 }
             }
